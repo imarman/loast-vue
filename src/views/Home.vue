@@ -1,18 +1,34 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <div>
+      <el-button @click='textIndex'> 测似 axios </el-button>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import {getIndex} from '../api/index'
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name: "Home",
+  // components: {
+
+  // }
+
+  data() {
+    return {
+      index: "index"
+    }
+  },
+  methods: {
+    textIndex() {
+      getIndex().then(resp => {
+        console.log(resp);
+      })
+    }
+  },
+  created() {
+
   }
-}
+};
 </script>
